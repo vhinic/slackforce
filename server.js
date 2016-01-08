@@ -11,11 +11,9 @@ app.use(compression());
 
 app.use('/', express.static(__dirname + '/www'));
 
-/*
-app.get('/students', students.findAll);
-app.get('/students/:id', students.findById);
-app.get('/students/:id/enrollments', enrollments.findByStudent);
-*/
+app.get('/auth/login', function(req, res) {
+    res.send('Welcome to Slackforce');
+});
 
 app.get('/auth/login', auth.login);
 app.get('/auth/callback', auth.callback);
