@@ -13,3 +13,6 @@ function login(req, res) {
 function callback(req, res) {
     res.send("OK");
 }
+
+exports.login = login;
+exports.callback = callback;
