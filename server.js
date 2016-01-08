@@ -9,9 +9,7 @@ app.set('port', process.env.PORT || 5000);
 app.use(bodyParser.json());
 app.use(compression());
 
-app.use('/', express.static(__dirname + '/www'));
-
-app.get('/auth/login', function(req, res) {
+app.get('/', function(req, res) {
     res.send('Welcome to Slackforce');
 });
 
