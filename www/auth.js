@@ -6,8 +6,6 @@ var org = nforce.createConnection({
   redirectUri: 'https://slackforce.herokuapp.com/oauth/callback'
 });
 
-
-
 function login(req, res) {
     res.redirect(org.getAuthUri());
 }
