@@ -14,5 +14,10 @@ function callback(req, res) {
     res.send("OK");
 }
 
+function hello(req, res) {
+    res.send("Hello");
+}
+
 exports.login = login;
 exports.callback = callback;
+exports.hello = hello;
