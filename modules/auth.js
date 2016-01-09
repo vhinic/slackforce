@@ -25,6 +25,10 @@ function callback(req, res) {
 }
 
 function hello(req, res) {
+    if (!req.session && !req.session.oauth) {
+        res.send("Not authenticated");
+        return;
+    }
     var q = 'SELECT Id, Name FROM Contact LIMIT 1';
     org.query({ query: q, oauth: req.session.oauth }, function(err, resp) {
         if(!err && resp.records) {
