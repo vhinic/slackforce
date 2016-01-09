@@ -16,17 +16,14 @@ function callback(req, res) {
 
 function hello(req, res) {
     var q = 'SELECT Id, Name FROM Contact LIMIT 1';
-    res.send(q);
-    /*
     org.query({ query: q }, function(err, resp) {
-        res.send(resp);
+        res.send("hello");
         if(!err && resp.records) {
             var contact = resp.records[0];
             res.send(contact);
             //res.send({"text": contact.Name});
         }
     });
-    */
 }
 
 exports.login = login;
