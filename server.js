@@ -1,4 +1,5 @@
 var express = require('express'),
+    cors = require('cors'),
     bodyParser = require('body-parser'),
     compression = require('compression'),
     auth = require('./modules/auth'),
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({ secret: 'somesecret', key: 'sid' }));
 app.use(compression());
+app.use(cors());
 
 app.get('/auth/login', auth.login);
 app.get('/auth/callback', auth.callback);
