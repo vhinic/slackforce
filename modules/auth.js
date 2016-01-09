@@ -29,8 +29,8 @@ function hello(req, res) {
     org.query({ query: q, oauth: req.session.oauth }, function(err, resp) {
         if(!err && resp.records) {
             var contact = resp.records[0];
-            res.send(contact);
-            //res.send({"text": contact.Name});
+            // res.send(contact);
+            res.json({"text": contact.name});
         }
     });
 }
