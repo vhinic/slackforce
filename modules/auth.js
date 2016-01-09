@@ -24,7 +24,7 @@ function callback(req, res) {
 
 function hello(req, res) {
     var q = 'SELECT Id, Name FROM Contact LIMIT 1';
-    org.query({ query: q }, function(err, resp) {
+    org.query({ query: q, oauth: req.session.oauth }, function(err, resp) {
         if(!err && resp.records) {
             var contact = resp.records[0];
             res.send(contact);
