@@ -11,13 +11,19 @@ function login(req, res) {
 }
 
 function callback(req, res) {
-    res.send("OK");
+    org.authenticate({code: req.query.code}, function(err, resp){
+        if(!err) {
+          console.log('Access Token: ' + resp.access_token);
+          res.send("Authentication succeeded");
+        } else {
+          console.log('Error: ' + err.message);
+          res.send("Authentication failed");
+        }
+    });
 }
 
 function hello(req, res) {
     var q = 'SELECT Id, Name FROM Contact LIMIT 1';
-    res.send(org);
-    /*
     org.query({ query: q }, function(err, resp) {
         if(!err && resp.records) {
             var contact = resp.records[0];
@@ -25,7 +31,6 @@ function hello(req, res) {
             //res.send({"text": contact.Name});
         }
     });
-    */
 }
 
 exports.login = login;
