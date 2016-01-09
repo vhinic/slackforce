@@ -18,7 +18,7 @@ app.use(cors());
 
 app.get('/auth/login', auth.login);
 app.get('/auth/callback', auth.callback);
-app.get('/hello', auth.hello);
+app.post('/hello', auth.hello);
 
 app.use(function(err, req, res, next) {
     console.error(err.stack);
