@@ -7,6 +7,10 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     app = express();
 
+var options = {
+  credentials: true,
+};
+
 app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
@@ -14,7 +18,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({ secret: 'somesecret', key: 'sid' }));
 app.use(compression());
-app.use(cors());
+app.use(cors(options));
 
 app.get('/auth/login', auth.login);
 app.get('/auth/callback', auth.callback);
