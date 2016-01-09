@@ -30,7 +30,7 @@ function hello(req, res) {
         if(!err && resp.records) {
             var contact = resp.records[0];
             // res.send(contact);
-            res.json({"text": contact.name});
+            res.send({"text": contact.name});
         }
     });
 }
