@@ -16,7 +16,6 @@ function callback(req, res) {
         if(!err) {
           console.log('Access Token: ' + resp.access_token);
           session.oauth = resp;
-          res.send("Authentication succeeded");
         } else {
           console.log('Error: ' + err.message);
           res.send("Authentication failed");
@@ -30,7 +29,7 @@ function hello(req, res) {
         if(!err && resp.records) {
             var contact = resp.records[0];
             res.send(contact);
-//          res.send({"text": contact.Name});
+            //res.send({"text": contact.Name});
         }
     });
 }
