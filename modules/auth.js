@@ -19,7 +19,7 @@ function hello(req, res) {
     org.query({ query: q }, function(err, resp) {
         if(!err && resp.records) {
             var contact = resp.records[0];
-            res.send({text: contact.Name});
+            res.json({"text": contact.Name});
         }
     });
 }
