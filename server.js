@@ -8,7 +8,10 @@ var express = require('express'),
     app = express();
 
 var options = {
-  credentials: true,
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "credentials": true
 };
 
 app.set('port', process.env.PORT || 5000);
