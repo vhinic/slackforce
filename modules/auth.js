@@ -11,9 +11,11 @@ function login(req, res) {
 }
 
 function callback(req, res) {
+    var session = req.session;
     org.authenticate({code: req.query.code}, function(err, resp){
         if(!err) {
           console.log('Access Token: ' + resp.access_token);
+          session.oauth = resp;
           res.send("Authentication succeeded");
         } else {
           console.log('Error: ' + err.message);

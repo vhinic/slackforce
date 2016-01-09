@@ -2,11 +2,16 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     compression = require('compression'),
     auth = require('./modules/auth'),
+    session      = require('express-session'),
+    cookieParser = require('cookie-parser'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({ secret: 'somesecret', key: 'sid' }));
 app.use(compression());
 
 app.get('/', function(req, res) {
