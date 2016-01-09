@@ -25,7 +25,7 @@ function callback(req, res) {
 }
 
 function hello(req, res) {
-    if (!req.session && !req.session.oauth) {
+    if (!req.session || !req.session.oauth) {
         res.send("Not authenticated");
         return;
     }

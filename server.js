@@ -14,10 +14,6 @@ app.use(cookieParser());
 app.use(session({ secret: 'somesecret', key: 'sid' }));
 app.use(compression());
 
-app.get('/', function(req, res) {
-    res.send('Welcome to Slackforce');
-});
-
 app.get('/auth/login', auth.login);
 app.get('/auth/callback', auth.callback);
 app.get('/hello', auth.hello);
