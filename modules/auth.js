@@ -9,7 +9,8 @@ var CONTACT_TOKEN = process.env.CONTACT_TOKEN;
 var org = nforce.createConnection({
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
-  redirectUri: 'https://slackforce.herokuapp.com/auth/callback'
+  redirectUri: 'https://slackforce.herokuapp.com/auth/callback',
+  mode: 'single'
 });
 
 org.authenticate({ username: USER_ID, password: PASSWORD}, function(err, resp) {
