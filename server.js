@@ -16,7 +16,7 @@ var options = {
 
 app.set('port', process.env.PORT || 5000);
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 //app.use(cookieParser());
 //app.use(session({ secret: 'somesecret', key: 'sid' }));
 //app.use(compression());
