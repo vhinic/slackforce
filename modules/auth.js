@@ -25,6 +25,9 @@ function callback(req, res) {
 }
 
 function hello(req, res) {
+
+    res.send(req.body);
+    /*
     if (!req.session || !req.session.oauth) {
         res.send("Not authenticated");
         return;
@@ -37,6 +40,7 @@ function hello(req, res) {
             //res.send({"text": contact.name});
         }
     });
+    */
 }
 
 exports.login = login;
