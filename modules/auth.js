@@ -39,6 +39,4 @@ function contact(req, res) {
 
 }
 
-exports.login = login;
-exports.callback = callback;
 exports.contact = contact;
