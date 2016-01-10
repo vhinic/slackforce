@@ -29,10 +29,10 @@ function contact(req, res) {
         return;
     }
 
-    var q = 'SELECT Id, Name FROM Contact LIMIT 1';
+    var q = 'SELECT Id, Name WHERE Name LIKE "%' + req.body.text + '%" FROM Contact LIMIT 5';
     org.query({ query: q }, function(err, resp) {
         if(!err && resp.records) {
-            var contact = resp.records[0];
+            var contact = resp.records;
             res.send(contact);
             //res.send({"text": contact.name});
         }
