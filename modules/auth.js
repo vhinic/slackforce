@@ -38,6 +38,7 @@ function contact(req, res) {
             var contacts = resp.records;
             var attachments = [];
             contacts.forEach(function(contact) {
+                console.log(contact);
                 var fields = [];
                 fields.push({title: "Name", value: contact.name, short:true});
                 fields.push({title: "Phone", value: contact.phone, short:true});
