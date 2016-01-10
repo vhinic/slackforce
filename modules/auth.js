@@ -29,7 +29,7 @@ function contact(req, res) {
         return;
     }
 
-    var q = "SELECT Id, Name FROM Contact WHERE Name LIKE '%" + req.body.text + "%' LIMIT 5";
+    var q = "SELECT Id, Name, Account.Name, Phone, MobilePhone, Email FROM Contact WHERE Name LIKE '%" + req.body.text + "%' LIMIT 5";
     org.query({ query: q }, function(err, resp) {
         if(!err && resp.records) {
             var contact = resp.records;
