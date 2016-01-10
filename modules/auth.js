@@ -27,7 +27,7 @@ function callback(req, res) {
 function hello(req, res) {
 
     if (req.body) {
-        res.send(req.body);
+        res.send("body");
     } else {
         res.send("request doesn't have body");
     }
