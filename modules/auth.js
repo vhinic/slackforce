@@ -39,11 +39,11 @@ function contact(req, res) {
             var attachments = [];
             contacts.forEach(function(contact) {
                 var fields = [];
-                fields.push({title: "Name", value: contact.Name, short:true});
-                fields.push({title: "Phone", value: contact.Phone, short:true});
+                fields.push({title: "Name", value: contact.name, short:true});
+                fields.push({title: "Phone", value: contact.phone, short:true});
                 attachments.push({fields: fields});
             });
-            res.send(JSON.stringify({attachments: attachments}));
+            res.send(JSON.stringify({text: "Contacts", attachments: attachments}));
         } else {
             res.send("No records");
         }
