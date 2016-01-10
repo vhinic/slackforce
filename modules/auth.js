@@ -9,7 +9,7 @@ var nforce = require('nforce'),
     org = nforce.createConnection({
       clientId: CLIENT_ID,
       clientSecret: CLIENT_SECRET,
-      redirectUri: 'https://slackforce.herokuapp.com/auth/callback',
+      redirectUri: 'http://localhost:3000/oauth/_callback',
       mode: 'single'
     });
 
@@ -23,10 +23,13 @@ org.authenticate({ username: USER_ID, password: PASSWORD}, function(err, resp) {
 });
 
 function contact(req, res) {
+    /*
     if (req.body.token != CONTACT_TOKEN) {
         res.send("Invalid token");
         return;
     }
+    */
+    console.log(JSON.stringify(req.body.text));
     var q = "SELECT Id, Name, Phone, MobilePhone, Email FROM Contact WHERE Name LIKE '%" + req.body.text + "%' LIMIT 5";
     org.query({query: q}, function(err, resp) {
         if (err) {
