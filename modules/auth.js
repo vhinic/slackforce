@@ -26,7 +26,12 @@ function callback(req, res) {
 
 function hello(req, res) {
 
-    res.send(req.body);
+    if (req.body) {
+        res.send(req.body);
+    } else {
+        res.send("request doesn't have body");
+    }
+
     /*
     if (!req.session || !req.session.oauth) {
         res.send("Not authenticated");
