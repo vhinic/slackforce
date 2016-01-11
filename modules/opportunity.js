@@ -9,7 +9,7 @@ function execute(req, res) {
         return;
     }
 
-    var q = "SELECT Id, Name, Account.Name, Amount, Probability, StageName, CloseDate FROM Opportunity where isClosed=false ORDER BY amount DESC LIMIT 5";
+    var q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate FROM Opportunity where isClosed=false ORDER BY amount DESC LIMIT 5";
     org.query({query: q}, function(err, resp) {
         if (err) {
             console.error(err);
@@ -26,7 +26,7 @@ function execute(req, res) {
                 fields.push({title: "Account", value: opportunity.get("Account").Name, short:true});
                 fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
                 fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
-                fields.push({title: "Amount", value: new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(opportunity.get("Amount")), short:true});
+                fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:true});
                 fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
