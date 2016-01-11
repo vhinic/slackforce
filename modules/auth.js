@@ -47,7 +47,7 @@ function contact(req, res) {
                 fields.push({title: "Phone", value: contact.get("phone"), short:true});
                 attachments.push({fields: fields});
             });
-            res.send(JSON.stringify({text: "Contacts", attachments: attachments}));
+            res.json({text: "Contacts", attachments: attachments});
         } else {
             res.send("No records");
         }
