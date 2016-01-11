@@ -23,7 +23,7 @@ function execute(req, res) {
                 console.log(opportunity);
                 var fields = [];
                 fields.push({title: "Opportunity", value: opportunity.get("Name"), short:true});
-                fields.push({title: "Account", value: opportunity.get("Name"), short:true});
+                fields.push({title: "Account", value: opportunity.get("Account").Name, short:true});
                 fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
                 fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
                 fields.push({title: "Amount", value: opportunity.get("Amount"), short:true});
