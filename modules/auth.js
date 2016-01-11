@@ -41,8 +41,8 @@ function contact(req, res) {
             var contacts = resp.records;
             var attachments = [];
             contacts.forEach(function(contact) {
-                console.log(contact);
                 var fields = [];
+                console.log(contact.get("name"));
                 fields.push({title: "Name", value: contact.get("name"), short:true});
                 fields.push({title: "Phone", value: contact.get("phone"), short:true});
                 attachments.push({fields: fields});
