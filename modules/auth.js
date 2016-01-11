@@ -23,13 +23,12 @@ org.authenticate({ username: USER_ID, password: PASSWORD}, function(err, resp) {
 });
 
 function contact(req, res) {
-    /*
+
     if (req.body.token != CONTACT_TOKEN) {
         res.send("Invalid token");
         return;
     }
-    */
-    console.log(JSON.stringify(req.body.text));
+
     var q = "SELECT Id, Name, Phone, MobilePhone, Email FROM Contact WHERE Name LIKE '%" + req.body.text + "%' LIMIT 5";
     org.query({query: q}, function(err, resp) {
         if (err) {
@@ -42,12 +41,13 @@ function contact(req, res) {
             var attachments = [];
             contacts.forEach(function(contact) {
                 var fields = [];
-                console.log(contact.get("name"));
-                fields.push({title: "Name", value: contact.get("name"), short:true});
-                fields.push({title: "Phone", value: contact.get("phone"), short:true});
-                attachments.push({fields: fields});
+                fields.push({title: "Name", value: contact.get("Name"), short:true});
+                fields.push({title: "Phone", value: contact.get("Phone"), short:true});
+                fields.push({title: "Mobile", value: contact.get("MobilePhone"), short:true});
+                fields.push({title: "Email", value: contact.get("Email"), short:true});
+                attachments.push({color: "#009cdb", fields: fields});
             });
-            res.json({text: "Contacts", attachments: attachments});
+            res.json({text: "Contacts matching '" + req.body.text + "':", attachments: attachments});
         } else {
             res.send("No records");
         }
