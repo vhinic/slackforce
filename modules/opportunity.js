@@ -9,11 +9,8 @@ function execute(req, res) {
         return;
     }
 
-    var q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate FROM Opportunity where isClosed=false ORDER BY amount DESC LIMIT 5";
+    var q = "SELECT Id, Name, Account.Name, Amount, Probability, StageName, CloseDate FROM Opportunity where isClosed=false ORDER BY amount DESC LIMIT 5";
     org.query({query: q}, function(err, resp) {
-        console.log(err);
-        console.log('***');
-        console.log(resp);
         if (err) {
             console.error(err);
             res.send("An error as occurred");
@@ -23,12 +20,14 @@ function execute(req, res) {
             var opportunities = resp.records;
             var attachments = [];
             opportunities.forEach(function(opportunity) {
+                console.log(opportunity);
                 var fields = [];
-                fields.push({title: "Name", value: opportunity.get("Name"), short:true});
+                fields.push({title: "Opportunity", value: opportunity.get("Name"), short:true});
+                fields.push({title: "Account", value: opportunity.get("Name"), short:true});
                 fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
-                fields.push({title: "Amount", value: opportunity.get("Amount"), short:true});
-                fields.push({title: "Probability", value: opportunity.get("Probability"), short:true});
                 fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
+                fields.push({title: "Amount", value: opportunity.get("Amount"), short:true});
+                fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
             res.json({text: "Top Opportunities:", attachments: attachments});
