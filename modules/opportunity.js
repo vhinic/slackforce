@@ -11,6 +11,9 @@ function execute(req, res) {
 
     var q = "SELECT Id, Name, Amount, Probability, StageName, CloseDate FROM Opportunity where isClosed=false ORDER BY amount DESC LIMIT 5";
     org.query({query: q}, function(err, resp) {
+        console.log(err);
+        console.log('***');
+        console.log(resp);
         if (err) {
             console.error(err);
             res.send("An error as occurred");
