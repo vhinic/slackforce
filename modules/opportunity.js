@@ -1,10 +1,10 @@
 var org = require('./auth').org,
 
-    CONTACT_TOKEN = process.env.OPPORTUNITIES_TOKEN;
+    CONTACT_TOKEN = process.env.OPPORTUNITY_TOKEN;
 
 function execute(req, res) {
 
-    if (req.body.token != OPPORTUNITIES_TOKEN) {
+    if (req.body.token != OPPORTUNITY_TOKEN) {
         res.send("Invalid token");
         return;
     }
