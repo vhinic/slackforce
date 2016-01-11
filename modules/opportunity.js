@@ -26,7 +26,7 @@ function execute(req, res) {
                 fields.push({title: "Account", value: opportunity.get("Account").Name, short:true});
                 fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
                 fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
-                fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:true});
+                fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.get("Id"), short:true});
                 fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
