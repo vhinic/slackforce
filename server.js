@@ -2,6 +2,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     auth = require('./modules/auth'),
     contact = require('./modules/contact'),
+    opportunity = require('./modules/opportunity'),
     case_ = require('./modules/case'),
     app = express();
 
@@ -10,6 +11,7 @@ app.set('port', process.env.PORT || 5000);
 app.use(bodyParser.urlencoded());
 
 app.post('/contact', contact.execute);
+app.post('/opportunity', opportunity.execute);
 app.post('/case', case_.execute);
 
 app.listen(app.get('port'), function () {
