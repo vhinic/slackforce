@@ -34,4 +34,4 @@ function execute(req, res) {
     });
 }
 
-exports.contact = contact;
+exports.execute = execute;
