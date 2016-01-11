@@ -20,13 +20,13 @@ function execute(req, res) {
     c.set('origin', 'Slack');
     c.set('status', 'New');
 
-    org.insert({ sobject: c}, function(err, resp){
+    org.insert({ sobject: c}, function(err, resp) {
         if (err) {
             console.error(err);
             res.send("An error occurred while creating a case");
         } else {
             console.log(resp);
-            res.send('Case created');
+            res.send('Case created ' + 'https://login.salesforce.com/' + resp.id);
         }
     });
 }
