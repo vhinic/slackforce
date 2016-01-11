@@ -23,10 +23,10 @@ function execute(req, res) {
                 console.log(opportunity);
                 var fields = [];
                 fields.push({title: "Opportunity", value: opportunity.get("Name"), short:true});
-                fields.push({title: "Account", value: opportunity.get("Account").Name, short:true});
+                fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:true});
                 fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
                 fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
-                fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.get("Id"), short:true});
+                fields.push({title: "Amount", value: new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(opportunity.get("Amount")), short:true});
                 fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
