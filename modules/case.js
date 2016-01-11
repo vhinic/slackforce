@@ -10,9 +10,13 @@ function execute(req, res) {
         return;
     }
 
+    var params = req.body.text.split(":");
+    var subject = params[0];
+    var description = params[1];
+
     var c = nforce.createSObject('Case');
-    c.set('subject', req.body.subject);
-    c.set('description', req.body.description);
+    c.set('subject', subject);
+    c.set('description', description);
     c.set('origin', 'Slack');
     c.set('status', 'New');
 
