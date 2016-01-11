@@ -22,13 +22,13 @@ function execute(req, res) {
         if (resp.records && resp.records.length>0) {
             var opportunities = resp.records;
             var attachments = [];
-            contacts.forEach(function(contact) {
+            opportunities.forEach(function(opportunity) {
                 var fields = [];
-                fields.push({title: "Name", value: contact.get("Name"), short:true});
-                fields.push({title: "Stage", value: contact.get("StageName"), short:true});
-                fields.push({title: "Amount", value: contact.get("Amount"), short:true});
-                fields.push({title: "Probability", value: contact.get("Probability"), short:true});
-                fields.push({title: "Close Date", value: contact.get("CloseDate"), short:true});
+                fields.push({title: "Name", value: opportunity.get("Name"), short:true});
+                fields.push({title: "Stage", value: opportunity.get("StageName"), short:true});
+                fields.push({title: "Amount", value: opportunity.get("Amount"), short:true});
+                fields.push({title: "Probability", value: opportunity.get("Probability"), short:true});
+                fields.push({title: "Close Date", value: opportunity.get("CloseDate"), short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
             res.json({text: "Top Opportunities:", attachments: attachments});
