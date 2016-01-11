@@ -31,4 +31,4 @@ function execute(req, res) {
     });
 }
 
-exports.case = case;
+exports.execute = execute;
