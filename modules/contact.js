@@ -21,10 +21,10 @@ function execute(req, res) {
             var attachments = [];
             contacts.forEach(function(contact) {
                 var fields = [];
-                fields.push({title: "Name", value: contact.get("Name"), short:true});
-                fields.push({title: "Phone", value: contact.get("Phone"), short:true});
-                fields.push({title: "Mobile", value: contact.get("MobilePhone"), short:true});
-                fields.push({title: "Email", value: contact.get("Email"), short:true});
+                fields.push({title: "Name", value: contact.get("Name"), short:false});
+                fields.push({title: "Phone", value: contact.get("Phone"), short:false});
+                fields.push({title: "Mobile", value: contact.get("MobilePhone"), short:false});
+                fields.push({title: "Email", value: contact.get("Email"), short:false});
                 attachments.push({color: "#009cdb", fields: fields});
             });
             res.json({text: "Contacts matching '" + req.body.text + "':", attachments: attachments});
