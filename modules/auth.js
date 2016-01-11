@@ -43,8 +43,8 @@ function contact(req, res) {
             contacts.forEach(function(contact) {
                 console.log(contact);
                 var fields = [];
-                fields.push({title: "Name", value: contact.name, short:true});
-                fields.push({title: "Phone", value: contact.phone, short:true});
+                fields.push({title: "Name", value: contact.get("name"), short:true});
+                fields.push({title: "Phone", value: contact.get("phone"), short:true});
                 attachments.push({fields: fields});
             });
             res.send(JSON.stringify({text: "Contacts", attachments: attachments}));
