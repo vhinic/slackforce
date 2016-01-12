@@ -32,7 +32,11 @@ function execute(req, res) {
                 fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
-            res.json({text: "Top 5 Opportunities:", attachments: attachments});
+            res.json({
+                response_type: "in_channel",
+                text: "Top " + limit + " opportunities in the pipeline:",
+                attachments: attachments
+            });
         } else {
             res.send("No records");
         }

@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.post('/topopps', opportunity.execute);
+app.post('/pipeline', opportunity.execute);
 app.post('/contact', contact.execute);
 app.post('/case', _case.execute);
 
