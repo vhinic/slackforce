@@ -25,7 +25,17 @@ function execute(req, res) {
             console.error(err);
             res.send("An error occurred while creating a case");
         } else {
-            res.send('Case created ' + 'https://login.salesforce.com/' + resp.id);
+            var fields = [];
+            fields.push({title: "Subject", value: subject, short:false});
+            fields.push({title: "Description", value: description, short:false});
+            fields.push({title: "Link", value: 'https://login.salesforce.com/' + resp.id, short:false});
+            var message = {
+                response_type: "in_channel",
+                text: "Case created"},
+                attachments: [
+                    {fields: fields}
+                ]
+            res.json(message);
         }
     });
 }
