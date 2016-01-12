@@ -20,7 +20,6 @@ function execute(req, res) {
             var opportunities = resp.records;
             var attachments = [];
             opportunities.forEach(function(opportunity) {
-                console.log(opportunity);
                 var fields = [];
                 fields.push({title: "Opportunity", value: opportunity.get("Name"), short:true});
                 fields.push({title: "Link", value: "https://login.salesforce.com/" + opportunity.getId(), short:true});
@@ -30,7 +29,7 @@ function execute(req, res) {
                 fields.push({title: "Probability", value: opportunity.get("Probability") + "%", short:true});
                 attachments.push({color: "#009cdb", fields: fields});
             });
-            res.json({text: "Top Opportunities:", attachments: attachments});
+            res.json({text: "Top 5 Opportunities:", attachments: attachments});
         } else {
             res.send("No records");
         }

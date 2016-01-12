@@ -3,16 +3,16 @@ var express = require('express'),
     auth = require('./modules/auth'),
     contact = require('./modules/contact'),
     opportunity = require('./modules/opportunity'),
-    case_ = require('./modules/case'),
+    _case = require('./modules/case'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/contact', contact.execute);
 app.post('/opportunity', opportunity.execute);
-app.post('/case', case_.execute);
+app.post('/case', _case.execute);
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));

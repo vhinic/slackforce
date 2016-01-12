@@ -1,0 +1,11 @@
+{
+  "name": "Slackforce",
+  "description": "Simple message broker to enable Slack to Salesforce communication using Slash Commands",
+  "env": {
+    "USER_NAME": "",
+    "PASSWORD": "",
+    "OPPORTUNITY_TOKEN": "",
+    "CONTACT_TOKEN": "",
+    "CASE_TOKEN": ""
+  }
+}

@@ -25,7 +25,6 @@ function execute(req, res) {
             console.error(err);
             res.send("An error occurred while creating a case");
         } else {
-            console.log(resp);
             res.send('Case created ' + 'https://login.salesforce.com/' + resp.id);
         }
     });

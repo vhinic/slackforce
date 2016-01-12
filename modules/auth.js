@@ -2,7 +2,7 @@ var nforce = require('nforce'),
 
     CLIENT_ID = process.env.CLIENT_ID,
     CLIENT_SECRET = process.env.CLIENT_SECRET,
-    USER_ID = process.env.USER_ID,
+    USER_NAME = process.env.USER_NAME,
     PASSWORD = process.env.PASSWORD;
 
     org = nforce.createConnection({
@@ -13,7 +13,7 @@ var nforce = require('nforce'),
     });
 
 function login() {
-    org.authenticate({ username: USER_ID, password: PASSWORD}, function(err, resp) {
+    org.authenticate({ username: USER_NAME, password: PASSWORD}, function(err, resp) {
         if (err) {
             console.error("Authentication error");
             console.error(err);
