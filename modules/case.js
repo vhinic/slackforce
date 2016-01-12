@@ -35,6 +35,7 @@ function execute(req, res) {
                 attachments: [
                     {fields: fields}
                 ]
+            };
             res.json(message);
         }
     });
