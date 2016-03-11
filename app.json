@@ -4,31 +4,31 @@
   "env": {
     "CLIENT_ID": {
         "description": "Client Id of your Salesforce Connected App",
-        "value":""
+        "value":"3MVG9uudbyLbNPZOcTUZ8aMpun8eT7t8sFxbQC3WX1Voip7BUuR_3y_pKuuCWdnFKnF.jqbrKB2V8Dck4YapX"
     },
     "CLIENT_SECRET": {
         "description": "Secret of your Salesforce Connected App",
-        "value":""
+        "value":"1351268753677025737"
     },
     "USER_NAME": {
         "description": "Salesforce username for your integration user",
-        "value":""
+        "value":"vlada@studio-terra.com"
     },
     "PASSWORD": {
         "description": "Salesforce password for your integration user",
-        "value":""
+        "value":"SF8_Chocolat"
     },
     "OPPORTUNITY_TOKEN": {
         "description": "Slack token for the pipeline slash command",
-        "value":""
+        "value":"YkMHnZoxE1uOwLLaIvcB8siS"
     },
     "CONTACT_TOKEN": {
         "description": "Slack token for the contact slash command",
-        "value":""
+        "value":"oUILu4CvEA3oJFVHqSrfwAWf"
     },
     "CASE_TOKEN": {
         "description": "Slack token for the case slash command",
-        "value":""
+        "value":"MLctH1xXZxoWWAZC558Gz0rl"
     }
   }
 }
